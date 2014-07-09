@@ -34,20 +34,27 @@ To install and run this project, follow the following steps:
 ####Install Node Modules
 `npm install`
 
+Note: depending on your local environment, it may be necessary to install globally using `sudo npm install -g`
+
 ####Install bower_components
-go to AngularRecess/public folder and run `bower install`
+Go to AngularRecess/public folder and run `bower install`
 
 ####Install and run mongodb (using homebrew)
 `brew install mongodb`
 
-`mongod --port 17017`
+`mongod --port 17017` (or most likely `sudo mongod --port 17017`)
 
 ####Access to mongo db and look for users
-steps to see users collection in a terminal
+Steps to see users collection in a terminal
 `mongo localhost:17017`
 `use openRecess`
 `show collections`
 `db.users.find()`
+
+####Starting the server
+`node app.js`
+
+After running node, you should be able to hit the app at `http://localhost:5000`
 
 ##Contributors
 
