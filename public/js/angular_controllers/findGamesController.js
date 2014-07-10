@@ -48,7 +48,7 @@ angular.module('angularFindGames', [])
 //searches for game and location by calling the Googlemaps geocode api
   $scope.findLocation = function(gameType, location) {
     gameType = gameType || 'All Games';
-    location = location || 'San Francisco';
+    location = location || 'Boston';
     googleMapsFind.get('http://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&sensor=true', function(data) {
       var foundLocation = data.results[0].geometry.location;
       $scope.map.center.latitude = foundLocation.lat;
