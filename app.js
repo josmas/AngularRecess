@@ -8,15 +8,12 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy,
     mongoose = require('mongoose'),
     MongoStore = require('connect-mongo')(express),
     config = require('./config/config.js');
 
 // Connect to mongoose database and create object schemas
 mongoose.connect(config.db);
-var User = require('./models/user.js');
-var Game = require('./models/game.js');
 
 // Setup express server
 var app = express();
@@ -44,29 +41,8 @@ app.use(require('stylus').middleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-passport.serializeUser(function(user, done) {
-  console.log('User serialize');
-  done(null, user.email);
-});
-
-passport.deserializeUser(function(email, done) {
-  console.log('User deserialize');
-  User.findOne({email: email}, function (err, user) {
-    done(err, user);
-  });
-});
-
-// Setup passport config
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password'
-  },
-  function(username, password, done) {
-    User.login(username, password, function(err, user) {
-      return done(null, user);
-    });
-  })
-);
+//setup passport authentication
+require('./passport')(app, passport);
 
 require('./routes')(app);
 
