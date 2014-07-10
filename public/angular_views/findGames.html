@@ -2,7 +2,7 @@
   <div class="row">
     <div class="small-12 columns">
       <h1>
-        Play games with awesome people just like you. Join up, meet new people, and start having fun. Free!
+        Find an afterschool program near you!
       </h1>
     </div>
   </div>
@@ -16,7 +16,7 @@
       <div class="small-12 large-5 columns game-type-container">
         <div class="chosen-container chosen-container-single">
       <select ng-model="gameToFind" class="game-type chosen-select" ng-options="sport for sport in sports" ng-model="search.gameType">
-        <option class="chosen-single" value="">All Games</option>
+        <option class="chosen-single" value="">All Programs</option>
       </select>
         </div>
       </div>
@@ -27,7 +27,7 @@
         Located in:
       </div>
       <div class="small-9 large-5 columns location">
-        <input type="text" ng-model="locationToFind" placeholder="San Francisco, Ca">
+        <input type="text" ng-model="locationToFind" placeholder="Boston, MA">
       </div>
       <div class="small-3 large-1 columns search">
         <input type="submit" value="M" ng-click="findLocation(gameToFind, locationToFind)" />
@@ -53,16 +53,10 @@
 <div class="row hide-for-small sub-filter-bar">
   <div class="small-12 columns">
     <div class="option filter-by">
-      <span>Filter Games By:</span>
+      <span>Filter Programs By:</span>
     </div>
     <div class="option date">
       <input type="text" class="datepicker" ng-model="search.gameDate" placeholder="Date">
-    </div>
-    <div class="option filter-by">
-      <span>Players Needed: </span>
-    </div>
-    <div class="option players-needed">
-      <input type="text" ng-model="search.playersNeeded">
     </div>
   </div>
 </div>
