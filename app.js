@@ -14,7 +14,13 @@ var express = require('express'),
     config = require('./config/config.js');
 
 // Connect to mongoose database and create object schemas
-mongoose.connect(config.db);
+mongoose.connect(config.db, function(err){
+    if (err) {
+      console.log('ERROR: Cannot Connect to Database; make sure MongoDB is running.');
+      process.exit(0);
+    }
+});
+
 var User = require('./models/user.js');
 var Game = require('./models/game.js');
 
