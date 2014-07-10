@@ -39,10 +39,20 @@ Note: depending on your local environment, it may be necessary to install global
 ####Install bower_components
 Go to AngularRecess/public folder and run `bower install`
 
+####Create local config file.
+Copy the file config/sample-config.js into config/config.js
+
+`cp config\sample-config.js config\config.js`
+
+The local config file will not be pushed to the repo so that you can have your own configuration. An example of this would be to modify the port that the app is expecting MongoDB to run on.
+
+
 ####Install and run mongodb (using homebrew)
 `brew install mongodb`
 
 `mongod --port 17017` (or most likely `sudo mongod --port 17017`)
+
+(*note*: if you have modified the port in your local config file, use that one.)
 
 ####Access to mongo db and look for users
 Steps to see users collection in a terminal
